@@ -4,9 +4,11 @@ from PIL import Image
 import io
 import numpy as np
 from inference_sdk import InferenceHTTPClient
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 app = Flask(__name__)
-
+roboflow_key = os.getenv('ROBOFLOW_KEY')
 
 
 @app.route('/predict', methods=['POST'])
@@ -16,7 +18,7 @@ def predict():
     
     CLIENT = InferenceHTTPClient(
         api_url="https://detect.roboflow.com",
-        api_key="fi2WcHFLbFMDCYM6sThP"
+        api_key= roboflow_key
     )
     
     file = request.files['image'].read()
