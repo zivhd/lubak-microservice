@@ -1,4 +1,6 @@
 Flask
-ultralytics
 numpy
+pillow
+inference_sdk
+python-dotenv
 
